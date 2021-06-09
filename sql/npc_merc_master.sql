@@ -1,4 +1,4 @@
-SET @ID1 := 43285;
+SET @ID1 := 43283;
 
 DELETE FROM `creature_names` WHERE `entry`=@ID1;
 INSERT INTO `creature_names` (`entry`, `name`, `subname`, `info_str`, `flags1`, `type`, `family`, `rank`, `killcredit1`, `killcredit2`, `male_displayid`, `female_displayid`, `male_displayid2`, `female_displayid2`, `unknown_float1`, `unknown_float2`, `leader`, `questitem1`, `questitem2`, `questitem3`, `questitem4`, `questitem5`, `questitem6`, `waypointid`) VALUES (@ID1, 'Mercenary Master', 'ArcMercs', 'Buy', 0, 7, 0, 0, 0, 0, 3167, 5446, 0, 0, 1.5, 1, 0, 0, 0, 0, 0, 0, 0, 144);
