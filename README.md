@@ -18,7 +18,7 @@ WARNING: this stuff its in development, dont try to use it yet.
 
 ## Credits to
 
-* HalestormXV and Hipersniper who has the original idea.
+* HalestormXV and Hypersniper who has the original idea.
 * Hypersniper for his lua guides and some job in the lua engine.
 * Paroxysm for his Modular Way of scripting, LCF and Lua Scripting Expected Standards.
 * ArcEmu developers for ArcEmu and his A.L.E, specially to dfighter1985.
