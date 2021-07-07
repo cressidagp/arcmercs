@@ -4,11 +4,11 @@
 
 ArcMercs its a NON-OFFICIAL Mercenary project for ArcEmu just for learning purposes. Its scripted in Lua but may switch to C++ eventually.
 
-WARNING: this stuff its experimental, use it at your own risk. Feel free to open tickets to report bugs. Feedback its apreciated.
+WARNING: this stuff its in development, dont try to use it yet.
 
 ## Features
 
-* 3 Warriors, 1 Oficcer, 1 Medic.
+* 3 Warriors, 1 Officer, 1 Medic.
 * Database storage.
 * Two hire modes: on the field (classic) or on vendor.
 
