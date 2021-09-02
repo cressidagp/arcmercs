@@ -23,7 +23,7 @@ WARNING: this stuff its in development, dont try to use it yet.
 * Paroxysm for his Modular Way of scripting, LCF and Lua Scripting Expected Standards.
 * ArcEmu developers for ArcEmu and his A.L.E, specially to dfighter1985.
 
-## Links
+## Useful Links
 
 * [ArcEmu Forums](http://www.arcemu.org/forums/)
 * [ArcEmu Github](https://github.com/arcemu)
