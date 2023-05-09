@@ -1,5 +1,9 @@
 # ArcMercs
 
+## Status
+
+I did four different versions of this. Wasnt happy with anny of them. Taked a break to rethink where im trying to go with this.
+
 ## Introduction
 
 ArcMercs its a NON-OFFICIAL Mercenary project for ArcEmu just for learning purposes. Its scripted in Lua but may switch to C++ eventually.
