@@ -2,7 +2,7 @@
 
 ## Status
 
-I did four different versions of this. Wasnt happy with anny of them. Taked a break to rethink where im trying to go with this.
+I did four different versions of this. Wasnt happy with any of them. Taked a break to rethink where im trying to go with this.
 
 ## Introduction
 
