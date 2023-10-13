@@ -1,5 +1,15 @@
 ARCMERCS = {}
 
+--- LoadMercsOnMapChange()
+---   This function loads all mercenaries of a player when enter world or map change.
+---
+--- Parameter(s)
+---   event
+---   plr
+---
+--- Return value
+---   None.
+---
 function ARCMERCS.LoadMercsOnMapChange( event, plr )
 
 	local data = plr:GetGUID()

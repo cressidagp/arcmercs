@@ -2,6 +2,16 @@ local soldierId = { 43284, 43285 };
 
 ARCMERCS = {}
 
+--- getMercCount()
+---   Get the ammount of mercenaries than the player has.
+---
+---	Parameter(s)
+---   plr
+---   group
+---
+--- Return value
+---   Returns the number of mercenaries.
+---
 function getMercCount( plr, group )
 	
 	local data = tostring( plr:GetGUID() )
