@@ -48,11 +48,11 @@ function ARCMERCS.MasterOnHello( unit, event, plr )
 
 	unit:GossipCreateMenu( 1, plr, 0 )
 	
-	unit:GossipMenuAddItem( 1, "I want a Soldier.", 0, 0 )
+	unit:GossipMenuAddItem( 6, "I want a Soldier.", 0, 0 )
 	
-	unit:GossipMenuAddItem( 1, "I need a Healer.", 1, 0 )
+	unit:GossipMenuAddItem( 6, "I need a Healer.", 1, 0 )
 	
-	unit:GossipMenuAddItem( 1, "Give me an Officer.", 2, 0 )
+	unit:GossipMenuAddItem( 6, "Give me an Officer.", 2, 0 )
 	
 	unit:GossipMenuAddItem( 0, "Reset.", 3, 0 )
 	
