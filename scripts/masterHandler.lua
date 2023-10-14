@@ -1,11 +1,11 @@
-local soldierId = { 43284, 43285 };
+local soldierId = { 43284, 43285 }
 
 ARCMERCS = {}
 
 --- getMercCount()
 ---   Get the ammount of mercenaries than the player has.
 ---
----	Parameter(s)
+--- Parameter(s)
 ---   plr
 ---   group
 ---
