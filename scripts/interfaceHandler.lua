@@ -9,12 +9,16 @@ function showDisplayOptions( entry )
 	--local DB.optionName = {}
 	--local DB.optionId = {}
 	--local DB.display = {}
+	
+	DB["rowcount"] = 0
 
 	local result = WorldDBQuery(" SELECT groupId, optionName, optionId, display FROM arc_mercs.gossip_display WHERE entry = '"..entry.."' ")
 
 	if result then
 
 		local count = result:GetRowCount()
+
+		DB["rowcount"] = count
 
 		for i = 1, count do
 
@@ -153,7 +157,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		showDisplayOptions( unit:GetEntry() )
 		unit:GossipCreateMenu( 4, plr, 0 )
 
-		for i = 1, 4 do
+		for i = 1, DB["rowcount"] do
 
 			unit:GossipMenuAddItem( 8, DB[i][2], DB[i][3], 0 )
 			--print(DB[i][2], DB[i][3], DB[i][4])
