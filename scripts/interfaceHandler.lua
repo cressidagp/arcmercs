@@ -3,7 +3,16 @@
 ARCMERCS = {}
 DB = {}
 
-function showDisplayOptions( entry )
+--- getDisplayOptions()
+---   Gets from database all displayId options for a class of mercenary.
+---
+--- Parameter(s)
+---   entry
+---
+--- Return value
+---   None.
+---
+function getDisplayOptions( entry )
 
 	--local DB = {}
 	--local DB.optionName = {}
@@ -154,7 +163,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 	elseif intid == 10 then
 
-		showDisplayOptions( unit:GetEntry() )
+		getDisplayOptions( unit:GetEntry() )
 		unit:GossipCreateMenu( 4, plr, 0 )
 
 		for i = 1, DB["rowcount"] do
