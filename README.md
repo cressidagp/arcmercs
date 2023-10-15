@@ -2,19 +2,18 @@
 
 ## Status
 
-I did four different versions of this. Wasnt happy with any of them. Taked a break to rethink where im trying to go with this.
+Back in buisness. Did a new start. At the momment only Soldiers are working but their combat handlers hasn't been implemented.
 
 ## Introduction
 
 ArcMercs its a NON-OFFICIAL Mercenary project for ArcEmu just for learning purposes. Its scripted in Lua but may switch to C++ eventually.
 
-WARNING: this stuff its in development, dont try to use it yet.
-
 ## Features
 
-* 3 Warriors, 1 Officer, 1 Medic.
+* 3 Soldiers, 1 Officer, 1 Healer.
 * Database storage.
 * Two hire modes: on the field (classic) or on vendor.
+* Fully customizable.
 
 ## Requirements
 
@@ -29,6 +28,5 @@ WARNING: this stuff its in development, dont try to use it yet.
 
 ## Useful Links
 
-* [ArcEmu Forums](http://www.arcemu.org/forums/)
 * [ArcEmu Github](https://github.com/arcemu)
 * [ArcEmu Wiki](https://arcemu.fandom.com/wiki/Arcemu_Wiki)
