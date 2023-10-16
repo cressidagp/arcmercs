@@ -15,13 +15,10 @@ DB = {}
 function getDisplayOptions( entry )
 
 	--local DB = {}
-	--local DB.optionName = {}
-	--local DB.optionId = {}
-	--local DB.display = {}
 	
 	DB["rowcount"] = 0
 
-	local result = WorldDBQuery(" SELECT groupId, optionName, optionId, display FROM arc_mercs.gossip_display WHERE entry = '"..entry.."' ")
+	local result = WorldDBQuery(" SELECT groupId, optionName, optionId, display FROM arcmercs.gossip_display WHERE entry = '"..entry.."' ")
 
 	if result then
 

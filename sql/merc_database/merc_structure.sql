@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `arc_mercs`;
-CREATE DATABASE IF NOT EXISTS `arc_mercs` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `arc_mercs`;
+DROP DATABASE IF EXISTS `arcmercs`;
+CREATE DATABASE IF NOT EXISTS `arcmercs` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `arcmercs`;
 
 CREATE TABLE `mercenaries` (
   `ownerGuid` int(6) unsigned NOT NULL DEFAULT '0',

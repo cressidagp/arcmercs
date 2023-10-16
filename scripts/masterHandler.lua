@@ -18,7 +18,7 @@ function getMercCount( plr, group )
 	
 	local count = 0
 	
-	local result = WorldDBQuery(" SELECT entry FROM arc_mercs.mercenaries WHERE ownerGuid = '"..data.."' and groupId = "..group.."  ")
+	local result = WorldDBQuery(" SELECT entry FROM arcmercs.mercenaries WHERE ownerGuid = '"..data.."' and groupId = "..group.."  ")
 	
 	if result then
 	
@@ -76,7 +76,7 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 			
 				local e = soldierId[ plr:GetTeam() + 1 ]
 				
-				WorldDBQuery(" INSERT INTO arc_mercs.mercenaries (ownerGuid, groupId, entry, ownerName, type) VALUES ('"..tostring(data).."', 0, "..e..", '"..plr:GetName().."', 'Soldier' ) ")
+				WorldDBQuery(" INSERT INTO arcmercs.mercenaries (ownerGuid, groupId, entry, ownerName, type) VALUES ('"..tostring(data).."', 0, "..e..", '"..plr:GetName().."', 'Soldier' ) ")
 				
 				local merc = plr:CreateGuardian( e, 0, math.random( 1, 6 ), level )
 				
@@ -110,7 +110,7 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 	
 	if( intid == 3 ) then
 	
-		WorldDBQuery(" DELETE FROM arc_mercs.mercenaries WHERE ownerGuid = '"..tostring(data).."' ")
+		WorldDBQuery(" DELETE FROM arcmercs.mercenaries WHERE ownerGuid = '"..tostring(data).."' ")
 	
 		unit:SendChatMessage( 12, 0, "Your mercenary info has been reseted." )
 	
