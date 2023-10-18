@@ -46,15 +46,15 @@ end
 
 function ARCMERCS.MasterOnHello( unit, event, plr )
 
-	unit:GossipCreateMenu( 1, plr, 0 )
+	unit:GossipCreateMenu( 68000, plr, 0 )
 	
-	unit:GossipMenuAddItem( 6, "I want a Soldier.", 0, 0 )
+	unit:GossipMenuAddItem( 0, "Reset.", 0, 0 )
 	
-	unit:GossipMenuAddItem( 6, "I need a Healer.", 1, 0 )
+	unit:GossipMenuAddItem( 6, "I want a Soldier.", 1, 0 )
 	
-	unit:GossipMenuAddItem( 6, "Give me an Officer.", 2, 0 )
+	unit:GossipMenuAddItem( 6, "I need a Healer.", 2, 0 )
 	
-	unit:GossipMenuAddItem( 0, "Reset.", 3, 0 )
+	unit:GossipMenuAddItem( 6, "Give me an Officer.", 3, 0 )
 	
 	unit:GossipSendMenu( plr )
 
@@ -70,7 +70,17 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 	
 	if( intid == 0 ) then
 	
-		if getMercCount( plr, 0 ) < 3 then
+		WorldDBQuery(" DELETE FROM arcmercs.mercenaries WHERE ownerGuid = '"..tostring(data).."' ")
+	
+		--unit:SendChatMessage( 12, 0, "Your mercenary info has been reseted." )
+		
+		plr:GossipComplete()
+	
+	end
+	
+	if( intid == 1 ) then
+	
+		if getMercCount( plr, intid ) < 3 then
 		
 			if( coins > 10 ) then
 			
@@ -81,42 +91,45 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 				local merc = plr:CreateGuardian( e, 0, math.random( 1, 6 ), level )
 				
 				unit:SendChatMessage( 12, 0, "Take your Soldier." )
+				plr:GossipComplete()
 
 			else
 			
-				unit:SendChatMessage( 12, 0, "I apologize, "..plr:GetName().." but you do not have the amount of money I require." );
+				--unit:SendChatMessage( 12, 0, "I apologize, "..plr:GetName().." but you do not have the amount of money I require." );
+				unit:GossipCreateMenu( 68001, plr, 0 )
+				unit:GossipSendMenu( plr )
 			
 			end
 			
 		else
 		
-			unit:SendChatMessage( 12, 0, "Im sorry, "..plr:GetName().." but i cant spare more than three Soldiers for each hero." )
+			--unit:SendChatMessage( 12, 0, "Im sorry, "..plr:GetName().." but i cant spare more than three Soldiers for each hero." )
+			unit:GossipCreateMenu( 68002, plr, 0 )
+			unit:GossipSendMenu( plr )
 		
 		end
 		
 	end
 
-	if( intid == 1 ) then
+	if( intid == 2 ) then
 	
 		unit:SendChatMessage( 12, 0, "Take your Healer." )
 	
 	end
 	
-	if( intid == 2 ) then
+	if( intid == 3 ) then
 	
 		unit:SendChatMessage( 12, 0, "Take your Officer." )
 	
 	end
 	
-	if( intid == 3 ) then
+	if( intid == 4 ) then
 	
-		WorldDBQuery(" DELETE FROM arcmercs.mercenaries WHERE ownerGuid = '"..tostring(data).."' ")
-	
-		unit:SendChatMessage( 12, 0, "Your mercenary info has been reseted." )
-	
+		-- TODO
+
 	end
 	
-	plr:GossipComplete()
+	--plr:GossipComplete()
 	
 end
 
