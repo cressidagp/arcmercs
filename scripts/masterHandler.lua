@@ -80,31 +80,48 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 	
 	if( intid == 1 ) then
 	
-		if getMercCount( plr, intid ) < 3 then
-		
-			if( coins > 10 ) then
-			
-				local e = soldierId[ plr:GetTeam() + 1 ]
-				
-				WorldDBQuery(" INSERT INTO arcmercs.mercenaries (ownerGuid, groupId, entry, ownerName, type) VALUES ('"..tostring(data).."', "..intid..", "..e..", '"..plr:GetName().."', 'Soldier' ) ")
-				
-				local merc = plr:CreateGuardian( e, 0, math.random( 1, 6 ), level )
-				
-				unit:SendChatMessage( 12, 0, "Take your Soldier." )
-				plr:GossipComplete()
+		if( level >= 10 ) then
+	
+			if getMercCount( plr, intid ) < 3 then
 
+				if( coins > 10 ) then
+			
+					local e = soldierId[ plr:GetTeam() + 1 ]
+				
+					WorldDBQuery(" INSERT INTO arcmercs.mercenaries (ownerGuid, groupId, entry, ownerName, type) VALUES ('"..tostring(data).."', "..intid..", "..e..", '"..plr:GetName().."', 'Soldier' ) ")
+				
+					local merc = plr:CreateGuardian( e, 0, math.random( 1, 6 ), level )
+				
+					unit:SendChatMessage( 12, 0, "Take your Soldier." )
+					
+					plr:GossipComplete()
+
+				else
+			
+					--unit:SendChatMessage( 12, 0, "I apologize, "..plr:GetName().." but you do not have the amount of money I require." );
+					
+					unit:GossipCreateMenu( 68001, plr, 0 )
+					
+					unit:GossipSendMenu( plr )
+			
+				end
+			
 			else
-			
-				--unit:SendChatMessage( 12, 0, "I apologize, "..plr:GetName().." but you do not have the amount of money I require." );
-				unit:GossipCreateMenu( 68001, plr, 0 )
+		
+				--unit:SendChatMessage( 12, 0, "Im sorry, "..plr:GetName().." but i cant spare more than three Soldiers for each hero." )
+				
+				unit:GossipCreateMenu( 68002, plr, 0 )
+				
 				unit:GossipSendMenu( plr )
-			
+		
 			end
 			
 		else
 		
-			--unit:SendChatMessage( 12, 0, "Im sorry, "..plr:GetName().." but i cant spare more than three Soldiers for each hero." )
-			unit:GossipCreateMenu( 68002, plr, 0 )
+			-- unit:SendChatMessage( 12, 0, "Hi there, "..plr:GetName().." im afraid than your level is not enough." )
+			
+			unit:GossipCreateMenu( 68003, plr, 0 )
+			
 			unit:GossipSendMenu( plr )
 		
 		end
