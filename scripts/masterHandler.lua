@@ -74,7 +74,7 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 		--unit:SendChatMessage( 12, 0, "Your mercenary info has been reseted." )
 
-		plr:SendBroadcastMessage( "Your mercenary info has been reseted." );
+		plr:SendBroadcastMessage( "Your mercenary info has been reseted." )
 
 		plr:GossipComplete()
 
@@ -94,7 +94,9 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 					local merc = plr:CreateGuardian( e, 0, math.random( 1, 6 ), level )
 
-					unit:SendChatMessage( 12, 0, "Take your Soldier." )
+					-- unit:SendChatMessage( 12, 0, "Take your Soldier." )
+					
+					plr:SendBroadcastMessage( "You have hired a Mercenary." );
 
 					plr:GossipComplete()
 
