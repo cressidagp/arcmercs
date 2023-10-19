@@ -73,8 +73,24 @@ function ARCMERCS.MercsOnHello( unit, event, plr )
 			unit:GossipMenuAddItem( 2, "Move to my target.", 6, 0 )
 
 			unit:GossipMenuAddItem( 3, "Show me your abilities.", 7, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow front.", 8, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow LF.", 9, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow L.", 10, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow LB.", 11, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow back.", 12, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow RB.", 13, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow R.", 14, 0 )
+			
+			unit:GossipMenuAddItem( 3, "Follow RF.", 15, 0 )
 
-			unit:GossipMenuAddItem( 8, "Customize.", 10, 0 )
+			unit:GossipMenuAddItem( 8, "Customize.", 16, 0 )
 
 		else
 
@@ -90,7 +106,7 @@ end
 
 function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
-	if intid < 10 then
+	if intid < 16 then
 
 		if intid == 0 then
 
@@ -149,16 +165,56 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		end
 
 		if intid == 8 then
+		
+			unit:SetUnitToFollow( plr, 2, 0 ) -- front (0)
 
 		end
 
 		if intid == 9 then
+		
+			unit:SetUnitToFollow( plr, 2, 1.04 ) -- left front (60)
+
+		end
+		
+		if intid == 10 then
+		
+			unit:SetUnitToFollow( plr, 2, 1.57) -- Left (90)
+
+		end
+		
+		if intid == 11 then
+		
+			unit:SetUnitToFollow( plr, 2, 2.09 ) -- left back (120)
+
+		end
+		
+		if intid == 12 then
+		
+			unit:SetUnitToFollow( plr, 2, 3.14) -- Back (180)
+
+		end
+		
+		if intid == 13 then
+		
+			unit:SetUnitToFollow( plr, 2, 4.18) -- Right back
+
+		end
+		
+		if intid == 14 then
+		
+			unit:SetUnitToFollow( plr, 2, 4.71) -- Right (270)
+
+		end
+		
+		if intid == 15 then
+		
+			unit:SetUnitToFollow( plr, 2, 5.23) -- Right (300)
 
 		end
 
 		plr:GossipComplete()
 
-	elseif intid == 10 then
+	elseif intid == 16 then
 
 		getDisplayOptions( unit:GetEntry() )
 		unit:GossipCreateMenu( 4, plr, 0 )
