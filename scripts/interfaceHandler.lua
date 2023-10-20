@@ -13,8 +13,6 @@ DB = {}
 ---   None.
 ---
 function getDisplayOptions( entry )
-
-	--local DB = {}
 	
 	DB["rowcount"] = 0
 
@@ -74,21 +72,21 @@ function ARCMERCS.MercsOnHello( unit, event, plr )
 
 			unit:GossipMenuAddItem( 3, "Show me your abilities.", 7, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow front.", 8, 0 )
+			unit:GossipMenuAddItem( 2, "Follow front.", 8, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow LF.", 9, 0 )
+			unit:GossipMenuAddItem( 2, "Follow LF.", 9, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow L.", 10, 0 )
+			unit:GossipMenuAddItem( 2, "Follow L.", 10, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow LB.", 11, 0 )
+			unit:GossipMenuAddItem( 2, "Follow LB.", 11, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow back.", 12, 0 )
+			unit:GossipMenuAddItem( 2, "Follow back.", 12, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow RB.", 13, 0 )
+			unit:GossipMenuAddItem( 2, "Follow RB.", 13, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow R.", 14, 0 )
+			unit:GossipMenuAddItem( 2, "Follow R.", 14, 0 )
 			
-			unit:GossipMenuAddItem( 3, "Follow RF.", 15, 0 )
+			unit:GossipMenuAddItem( 2, "Follow RF.", 15, 0 )
 
 			unit:GossipMenuAddItem( 8, "Customize.", 16, 0 )
 
@@ -213,26 +211,32 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		end
 
 		plr:GossipComplete()
+	
+	end
 
-	elseif intid == 16 then
+	if intid == 16 then
 
 		getDisplayOptions( unit:GetEntry() )
+		
 		unit:GossipCreateMenu( 4, plr, 0 )
 
 		for i = 1, DB["rowcount"] do
 
 			unit:GossipMenuAddItem( 8, DB[i][2], DB[i][3], 0 )
+			
 			--print(DB[i][2], DB[i][3], DB[i][4])
 
 		end
 
 		unit:GossipSendMenu( plr )
 
-	else
-
-		unit:SetModel(DB[intid - 10][4])
+	end
+	
+	if intid >= 17 then
+	
+		unit:SetModel( DB[intid-16][4] )
+		
 		plr:GossipComplete()
-		--DB = nil
 
 	end
 
