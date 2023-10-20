@@ -7,6 +7,7 @@ CREATE TABLE `mercenaries` (
   `groupId` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `entry` int(6) unsigned NOT NULL DEFAULT '0',
+  `display` int(6) unsigned NOT NULL DEFAULT '0',
   `ownerName` varchar(21) NOT NULL DEFAULT '',
   `type` varchar(21) NOT NULL DEFAULT '',
   PRIMARY KEY (`ownerguid`, `groupId`, `id`)
