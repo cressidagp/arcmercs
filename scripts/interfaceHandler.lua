@@ -3,7 +3,7 @@
 ARCMERCS = {}
 DB = {}
 
---- getDisplayOptions()
+--- getDisplayOptions
 ---   Gets from database all displayId options for a class of mercenary.
 ---
 --- Parameter(s)
@@ -110,7 +110,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 			if getMercCount( plr, 0 ) < 3 then
 
-				if( plr:GetCoinage() > 10 ) then
+				if plr:GetCoinage() > 10 then
 
 					unit:SendChatMessage( 12, 0, "Yes." )
 
@@ -194,7 +194,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		
 		if intid == 13 then
 		
-			unit:SetUnitToFollow( plr, 2, 4.18) -- Right back
+			unit:SetUnitToFollow( plr, 2, 4.18) -- Right back (240)
 
 		end
 		
