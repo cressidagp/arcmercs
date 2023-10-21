@@ -36,13 +36,17 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 				
 				merc:SetModel( display )
 				
-				--merc:EquipWeapons( 1899, 143, 1 );
+				merc:EquipWeapons( 1899, 143, 1 )
+				
+				merc:SetByteValue( 0x7A, 0, 1 )
 				
 			end
 			
 			result:NextRow()
 		
 		until rowcount == 0
+		
+		print("[ArcMercs]: mercenaries of "..plr:GetName().." loaded. ") -- for debug
 		
 	end	
 	
