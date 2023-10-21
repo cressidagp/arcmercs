@@ -12,15 +12,17 @@ ARCMERCS = {}
 ---
 function ARCMERCS.LoadMercsOnMapChange( event, plr )
 
-	local data = tostring(plr:GetGUID())
+	local p = tostring(plr:GetGUID())
 	
-	local result = WorldDBQuery("SELECT entry, display FROM arcmercs.mercenaries WHERE ownerGuid = '"..data.."' AND groupId = 1")
+	local result = WorldDBQuery("SELECT entry, display FROM arcmercs.mercenaries WHERE ownerGuid = '"..p.."' AND groupId = 1")
 	
 	if result then
 	
 		local rowcount = result:GetRowCount()
 		
 		local level = plr:GetLevel()
+		
+		local id = 0
 		
 		repeat
 			
@@ -29,7 +31,7 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 			local entry = result:GetColumn( 0 ):GetUShort()
 			
 			local display = result:GetColumn( 1 ):GetULong()
-
+			
 			if entry ~= 0 then
 			
 				local merc = plr:CreateGuardian( entry, 0, math.random( 0, 5 ), level )
@@ -39,6 +41,16 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 				merc:EquipWeapons( 1899, 143, 1 )
 				
 				merc:SetByteValue( 0x7A, 0, 1 )
+				
+				local m = tostring(merc:GetGUID())
+
+				if entry == 43284 or entry == 43284 then
+				
+					id = id + 1
+				
+					WorldDBQuery("UPDATE arcmercs.mercenaries SET mercGuid = '"..m.."' WHERE ownerGuid = '"..p.."' AND groupId = 1 AND id = '"..id.."'")
+					
+				end
 				
 			end
 			
