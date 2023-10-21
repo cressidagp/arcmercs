@@ -236,7 +236,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 	
 		local d = DB[intid-16][4]
 	
-		unit:SetModel( DB[intid-16][4] )
+		unit:SetModel( d )
 		
 		WorldDBQuery("UPDATE arcmercs.mercenaries SET display = '"..d.."' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' and groupId = 1")
 		
