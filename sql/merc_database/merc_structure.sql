@@ -8,6 +8,7 @@ CREATE TABLE `mercenaries` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `entry` int(6) unsigned NOT NULL DEFAULT '0',
   `display` int(6) unsigned NOT NULL DEFAULT '0',
+  `angle` float unsigned NOT NULL,
   `mercGuid` varchar(21) NOT NULL DEFAULT '',
   `ownerName` varchar(21) NOT NULL DEFAULT '',
   `type` varchar(21) NOT NULL DEFAULT '',

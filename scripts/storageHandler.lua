@@ -32,9 +32,11 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 			
 			local display = result:GetColumn( 1 ):GetULong()
 			
+			local angle = result:GetColumn( 2 ):GetUFloat()
+			
 			if entry ~= 0 then
 			
-				local merc = plr:CreateGuardian( entry, 0, math.random( 0, 5 ), level )
+				local merc = plr:CreateGuardian( entry, 0, angle, level )
 				
 				merc:SetModel( display )
 				
