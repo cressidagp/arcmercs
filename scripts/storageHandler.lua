@@ -32,7 +32,7 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 			
 			local display = result:GetColumn( 1 ):GetULong()
 			
-			local angle = result:GetColumn( 2 ):GetUFloat()
+			local angle = result:GetColumn( 2 ):GetFloat()
 			
 			if entry ~= 0 then
 			
