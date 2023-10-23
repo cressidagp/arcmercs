@@ -2,7 +2,7 @@
 
 ## Status
 
-Back in buisness. Did a new start. At the momment only Soldiers are working but their combat handlers hasn't been implemented.
+Back in buisness. Did a new start. At the momment only Soldiers are working but their combat handlers hasn't been implemented yet.
 
 ## Introduction
 
@@ -17,7 +17,17 @@ ArcMercs its a NON-OFFICIAL Mercenary project for ArcEmu just for learning purpo
 
 ## Requirements
 
+Its designed to be compatible with [db world database.](https://github.com/arcemu/db)
+
 ## Instalation
+
+1. Apply all querys inside world_database in your arcemu_world database. 
+
+2. Run all querys inside merc_database. It will create a new database called ArcMercs.
+
+3. Copy all lua files from arcmercs\scripts folder to arcemu\scripts folder.
+
+4. Have Fun!
 
 ## Credits to
 
