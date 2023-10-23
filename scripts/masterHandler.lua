@@ -90,11 +90,13 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 					local e = soldierId[ plr:GetTeam() + 1 ]
 
-					WorldDBQuery(" INSERT INTO arcmercs.mercenaries (ownerGuid, groupId, entry, ownerName, type) VALUES ('"..tostring(data).."', "..intid..", "..e..", '"..plr:GetName().."', 'Soldier' ) ")
+					local angle = math.random( 0, 5 )
+					
+					local merc = plr:CreateGuardian( e, 0, angle, level )
+					
+					WorldDBQuery("INSERT INTO arcmercs.mercenaries (ownerGuid, groupId, entry, display, angle, mercGuid, ownerName, type) VALUES ('"..tostring(data).."', "..intid..", "..e..", "..merc:GetDisplay()..", "..angle..", '"..tostring(merc:GetGUID()).."', '"..plr:GetName().."', 'Soldier' )")
 
-					local merc = plr:CreateGuardian( e, 0, math.random( 1, 6 ), level )
-
-					-- unit:SendChatMessage( 12, 0, "Take your Soldier." )
+					--unit:SendChatMessage( 12, 0, "Take your Soldier." )
 					
 					plr:SendBroadcastMessage( "You have hired a Mercenary." );
 
