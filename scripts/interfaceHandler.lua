@@ -165,48 +165,56 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		if intid == 8 then
 		
 			unit:SetUnitToFollow( plr, 2, 0 ) -- front (0)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '0' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 
 		if intid == 9 then
 		
 			unit:SetUnitToFollow( plr, 2, 1.04 ) -- left front (60)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '1.04' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 10 then
 		
 			unit:SetUnitToFollow( plr, 2, 1.57) -- Left (90)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '1.57' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 11 then
 		
 			unit:SetUnitToFollow( plr, 2, 2.09 ) -- left back (120)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '2.09' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 12 then
 		
 			unit:SetUnitToFollow( plr, 2, 3.14) -- Back (180)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '3.14' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 13 then
 		
 			unit:SetUnitToFollow( plr, 2, 4.18) -- Right back (240)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '4.18' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 14 then
 		
 			unit:SetUnitToFollow( plr, 2, 4.71) -- Right (270)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '4.71' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 15 then
 		
 			unit:SetUnitToFollow( plr, 2, 5.23) -- Right (300)
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '5.23' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 
@@ -240,7 +248,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 	
 		unit:SetModel( d )
 		
-		WorldDBQuery("UPDATE arcmercs.mercenaries SET display = '"..d.."' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..m.."' ")
+		WorldDBQuery("UPDATE arcmercs.mercenaries SET display = '"..d.."' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..m.."'")
 		
 		plr:GossipComplete()
 
