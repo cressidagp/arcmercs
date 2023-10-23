@@ -21,9 +21,9 @@ Its designed to be compatible with [db world database.](https://github.com/arcem
 
 ## Instalation
 
-1. Apply all querys inside world_database in your arcemu_world database. 
+1. Apply all queries inside world_database in your arcemu_world database. 
 
-2. Run all querys inside merc_database. It will create a new database called ArcMercs.
+2. Run all queries inside merc_database. It will create a new database called ArcMercs.
 
 3. Copy all lua files from arcmercs\scripts folder to arcemu\scripts folder.
 
