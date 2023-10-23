@@ -235,10 +235,12 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 	if intid >= 17 then
 	
 		local d = DB[intid-16][4]
+		
+		local m = tostring(unit:GetGUID())
 	
 		unit:SetModel( d )
 		
-		WorldDBQuery("UPDATE arcmercs.mercenaries SET display = '"..d.."' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' and groupId = 1")
+		WorldDBQuery("UPDATE arcmercs.mercenaries SET display = '"..d.."' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..m.."' ")
 		
 		plr:GossipComplete()
 
