@@ -14,7 +14,7 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 
 	local p = tostring(plr:GetGUID())
 	
-	local result = WorldDBQuery("SELECT entry, display FROM arcmercs.mercenaries WHERE ownerGuid = '"..p.."' AND groupId = 1")
+	local result = WorldDBQuery("SELECT entry, display, angle FROM arcmercs.mercenaries WHERE ownerGuid = '"..p.."' AND groupId = 1")
 	
 	if result then
 	
