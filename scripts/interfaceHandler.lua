@@ -146,7 +146,19 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 		if intid == 5 then
 
-			unit:SendChatMessage( 12, 0, "Charge!!!" )
+			local target = plr:GetSelection()
+			
+            if target then -- TODO: add is friendly check (bugged?)
+			
+				unit:AttackReaction( target, 1, 0 )
+
+				unit:SendChatMessage( 14, 0, "Charge!!!" )
+			
+			else
+			
+				plr:SendBroadcastMessage( "Need to choose an enemy target first." )
+			
+			end
 
 		end
 
