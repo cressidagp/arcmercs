@@ -12,18 +12,18 @@ ArcMercs its a NON-OFFICIAL Mercenary project for ArcEmu just for learning purpo
 
 * 3 Soldiers, 1 Officer, 1 Healer.
 * Database storage.
-* Two hire modes: on the field (classic) or on vendor.
+* Two hire modes: on the field (like DII) or on vendor (more fun).
 * Fully customizable.
 
 ## Requirements
 
-Its designed to be compatible with [db world database.](https://github.com/arcemu/db)
+Its designed to be compatible with [db](https://github.com/arcemu/db) world database.
 
 ## Instalation
 
 1. Apply all queries inside world_database in your arcemu_world database. 
 
-2. Run all queries inside merc_database. It will create a new database called ArcMercs.
+2. Run all queries inside merc_database. It will create a new database called **arcmercs**.
 
 3. Copy all lua files from arcmercs\scripts folder to arcemu\scripts folder.
 
