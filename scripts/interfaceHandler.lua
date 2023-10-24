@@ -130,6 +130,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 			unit:SendChatMessage( 12, 0, "Very well I shall fight in a mixed style." )
 			
+			unit:CastSpell( 2457 )
+			
 			unit:EquipWeapons( 49778, 1, 1 )
 			
 			unit:SetByteValue( 0x7A, 0, 1 )
@@ -140,6 +142,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 			unit:SendChatMessage( 12, 0, "Well, Tank mode it is then." )
 			
+			unit:CastSpell( 71 )
+			
 			unit:EquipWeapons( 1899, 143, 1 )
 			
 			unit:SetByteValue( 0x7A, 0, 1 )
@@ -149,6 +153,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		if intid == 4 then
 
 			unit:SendChatMessage( 12, 0, "Ok, I will be taking more damage, just so you know." )
+			
+			unit:CastSpell( 2458 )
 			
 			unit:EquipWeapons( 1899, 1899, 1 )
 			
