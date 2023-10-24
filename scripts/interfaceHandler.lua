@@ -152,7 +152,21 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 		if intid == 6 then
 
-			unit:SendChatMessage( 12, 0, "As you wish." )
+			local target = plr:GetSelection()
+			
+			if target then
+			
+				unit:SetUnitToFollow( nil, 0, 0 ) -- need to stop following or it will return before reach
+			
+				unit:MoveTo( target:GetX(), target:GetY(), target:GetZ() )
+			
+				unit:SendChatMessage( 12, 0, "As you wish." )
+			
+			else
+			
+				plr:SendBroadcastMessage( "Need to choose a target first." )
+				
+			end
 
 		end
 
