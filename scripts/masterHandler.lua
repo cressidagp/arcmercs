@@ -18,14 +18,16 @@ function getMercCount( plr, group )
 
 	local count = 0
 
-	local result = WorldDBQuery(" SELECT entry FROM arcmercs.mercenaries WHERE ownerGuid = '"..data.."' and groupId = "..group.."  ")
+	local result = WorldDBQuery("SELECT entry FROM arcmercs.mercenaries WHERE ownerGuid = '"..data.."' AND groupId = "..group.."")
 
 	if result then
 
 		local rowcount = result:GetRowCount()
 
 		repeat
+		
 			rowcount = rowcount - 1
+			
 			local entry = result:GetColumn( 0 ):GetUShort()
 
 			if entry ~= 0 then
@@ -70,7 +72,7 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 	if( intid == 0 ) then
 
-		WorldDBQuery(" DELETE FROM arcmercs.mercenaries WHERE ownerGuid = '"..tostring(data).."' ")
+		WorldDBQuery("DELETE FROM arcmercs.mercenaries WHERE ownerGuid = '"..tostring(data).."'")
 
 		--unit:SendChatMessage( 12, 0, "Your mercenary info has been reseted." )
 
@@ -98,13 +100,13 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 					--unit:SendChatMessage( 12, 0, "Take your Soldier." )
 					
-					plr:SendBroadcastMessage( "You have hired a Mercenary." );
+					plr:SendBroadcastMessage( "You have hired a Mercenary." )
 
 					plr:GossipComplete()
 
 				else
 
-					--unit:SendChatMessage( 12, 0, "I apologize, "..plr:GetName().." but you do not have the amount of money I require." );
+					--unit:SendChatMessage( 12, 0, "I apologize, "..plr:GetName().." but you do not have the amount of money I require." )
 
 					unit:GossipCreateMenu( 68001, plr, 0 )
 
