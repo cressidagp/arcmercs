@@ -36,13 +36,13 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 			
 			if entry ~= 0 then
 			
-				local merc = plr:CreateGuardian( entry, 0, angle, level )
+				local merc = plr:CreateGuardian( entry, 0, angle, level ) -- duration = 0 for never despawn
 				
 				merc:SetModel( display )
 				
 				merc:EquipWeapons( 1899, 143, 1 )
 				
-				merc:SetByteValue( 0x7A, 0, 1 )
+				merc:SetByteValue( 0x7A, 0, 1 ) -- set weapons at hand 
 				
 				local m = tostring(merc:GetGUID())
 
