@@ -27,3 +27,18 @@ CREATE TABLE `gossip_display` (
   `type` varchar(21) NOT NULL DEFAULT '',
   PRIMARY KEY (`entry`, `groupId`, `team`, `optionId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='MercSystem';
+
+CREATE TABLE `weapons` (
+  `entry` int(6) unsigned NOT NULL DEFAULT '0',
+  `groupId` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `team` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `display` int(6) unsigned NOT NULL DEFAULT '0',
+  `stance` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `slot1` int(6) unsigned NOT NULL DEFAULT '0',
+  `slot2` int(6) unsigned NOT NULL DEFAULT '0',
+  `slot3` int(6) unsigned NOT NULL DEFAULT '0',
+  `teamName` varchar(21) NOT NULL DEFAULT '',
+  `raceName` varchar(21) NOT NULL DEFAULT '',
+  `type` varchar(21) NOT NULL DEFAULT '',
+  PRIMARY KEY (`entry`, `groupId`, `team`, `display`, `stance`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='MercSystem';
