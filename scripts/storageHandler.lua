@@ -14,7 +14,7 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 
 	local p = tostring(plr:GetGUID())
 	
-	local result = WorldDBQuery("SELECT entry, display, angle FROM arcmercs.mercenaries WHERE ownerGuid = '"..p.."' AND groupId = 1")
+	local result = WorldDBQuery("SELECT entry, display, angle, stance FROM arcmercs.mercenaries WHERE ownerGuid = '"..p.."' AND groupId = 1")
 	
 	if result then
 	
@@ -40,7 +40,19 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 				
 				merc:SetModel( display )
 				
-				merc:EquipWeapons( 1899, 143, 1 )
+				--merc:EquipWeapons( 1899, 143, 1 )
+				
+				if stance ~= 0 then
+				
+					local q = WorldDBQuery("SELECT slot1, slot2, slot3 FROM arcmercs.weapons WHERE entry = "..entry.." AND display = "..merc:GetDisplay().." AND stance = "..stance.."")
+					
+					if q then
+					
+						merc:EquipWeapons( q:GetColumn( 0 ):GetULong(), q:GetColumn( 1 ):GetULong(), q:GetColumn( 2 ):GetULong() )
+						
+					end
+					
+				end				
 				
 				merc:SetByteValue( 0x7A, 0, 1 ) -- set weapons at hand 
 				
