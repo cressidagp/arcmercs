@@ -3,6 +3,25 @@
 ARCMERCS = {}
 DB = {}
 
+--- getWeaponsFromDB
+---   Gets from arcmercs database slot1, slot2, slot3 weapons when a stance its selected.
+---
+--- Parameter(s)
+---   display
+---   stance
+---   unit
+---
+--- Return value
+---   None.
+---
+function getWeaponsFromDB( display, stance, unit )
+
+	local w = WorldDBQuery("SELECT slot1, slot2, slot3 FROM arcmercs.weapons WHERE display = '"..displayId.."' AND stance = '"..stance.."'")
+	
+	unit:EquipWeapons( w:GetColumn( 0 ):GetULong(), w:GetColumn( 1 ):GetULong(), w:GetColumn( 2 ):GetULong() )
+
+end
+
 --- getDisplayOptions
 ---   Gets from database all displayId options for a class of mercenary.
 ---
@@ -130,9 +149,11 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 			unit:SendChatMessage( 12, 0, "Very well I shall fight in a mixed style." )
 			
-			unit:CastSpell( 2457 )
+			unit:CastSpell( 2457 ) -- battle stance
 			
-			unit:EquipWeapons( 49778, 1, 1 )
+			--unit:EquipWeapons( 49778, 1, 1 )
+			
+			getWeaponsFromDB( unit:GetDisplay(), intid-1, unit )
 			
 			unit:SetByteValue( 0x7A, 0, 1 )
 
@@ -142,9 +163,11 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 			unit:SendChatMessage( 12, 0, "Well, Tank mode it is then." )
 			
-			unit:CastSpell( 71 )
+			unit:CastSpell( 71 ) -- defensive stance
 			
-			unit:EquipWeapons( 1899, 143, 1 )
+			--unit:EquipWeapons( 1899, 143, 1 )
+			
+			getWeaponsFromDB( unit:GetDisplay(), intid-1, unit )
 			
 			unit:SetByteValue( 0x7A, 0, 1 )
 
@@ -154,9 +177,11 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 
 			unit:SendChatMessage( 12, 0, "Ok, I will be taking more damage, just so you know." )
 			
-			unit:CastSpell( 2458 )
+			unit:CastSpell( 2458 ) -- berserker stance
 			
-			unit:EquipWeapons( 1899, 1899, 1 )
+			--unit:EquipWeapons( 1899, 1899, 1 )
+			
+			getWeaponsFromDB( unit:GetDisplay(), intid-1, unit )
 			
 			unit:SetByteValue( 0x7A, 0, 1 )
 
