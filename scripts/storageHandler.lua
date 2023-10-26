@@ -54,7 +54,7 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 					
 				end				
 				
-				merc:SetByteValue( 0x7A, 0, 1 ) -- set weapons at hand 
+				merc:SetByteValue( 0x7A, 0, 1 ) -- set weapons at hand
 				
 				local m = tostring(merc:GetGUID())
 
@@ -63,6 +63,8 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 					id = id + 1
 				
 					WorldDBQuery("UPDATE arcmercs.mercenaries SET mercGuid = '"..m.."' WHERE ownerGuid = '"..p.."' AND groupId = 1 AND id = '"..id.."'")
+					
+					merc:SetByteValue( 0x0006 + 0x0011, 1, 1) -- set merc class: warrior
 					
 				end
 				
