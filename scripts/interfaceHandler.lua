@@ -318,6 +318,10 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		unit:SetModel( d )
 		
 		WorldDBQuery("UPDATE arcmercs.mercenaries SET display = '"..d.."' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..m.."'")
+
+		-- TODO: get stance
+		
+		getWeaponsFromDB( d, 1, unit )
 		
 		plr:GossipComplete()
 
