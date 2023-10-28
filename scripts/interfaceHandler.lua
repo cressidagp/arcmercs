@@ -35,7 +35,7 @@ function getDisplayOptions( entry )
 	
 	DB["rowcount"] = 0
 
-	local result = WorldDBQuery(" SELECT groupId, optionName, optionId, display FROM arcmercs.gossip_display WHERE entry = '"..entry.."' ")
+	local result = WorldDBQuery("SELECT groupId, optionName, optionId, display FROM arcmercs.gossip_display WHERE entry = '"..entry.."'")
 
 	if result then
 
@@ -151,6 +151,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			
 			unit:CastSpell( 2457 ) -- battle stance
 			
+			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 1
+			
 			--unit:EquipWeapons( 49778, 1, 1 )
 			
 			getWeaponsFromDB( unit:GetDisplay(), intid-1, unit )
@@ -165,6 +167,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			
 			unit:CastSpell( 71 ) -- defensive stance
 			
+			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 2
+			
 			--unit:EquipWeapons( 1899, 143, 1 )
 			
 			getWeaponsFromDB( unit:GetDisplay(), intid-1, unit )
@@ -178,6 +182,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			unit:SendChatMessage( 12, 0, "Ok, I will be taking more damage, just so you know." )
 			
 			unit:CastSpell( 2458 ) -- berserker stance
+			
+			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 3
 			
 			--unit:EquipWeapons( 1899, 1899, 1 )
 			
