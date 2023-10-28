@@ -58,7 +58,7 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 				
 				local m = tostring(merc:GetGUID())
 
-				if entry == 43284 or entry == 43284 then
+				if entry == 43284 or entry == 43285 then
 				
 					id = id + 1
 				
