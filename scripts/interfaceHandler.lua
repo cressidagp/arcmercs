@@ -16,7 +16,7 @@ DB = {}
 ---
 function getWeaponsFromDB( display, stance, unit )
 
-	local w = WorldDBQuery("SELECT slot1, slot2, slot3 FROM arcmercs.weapons WHERE display = '"..displayId.."' AND stance = '"..stance.."'")
+	local w = WorldDBQuery("SELECT slot1, slot2, slot3 FROM arcmercs.weapons WHERE display = '"..display.."' AND stance = '"..stance.."'")
 	
 	unit:EquipWeapons( w:GetColumn( 0 ):GetULong(), w:GetColumn( 1 ):GetULong(), w:GetColumn( 2 ):GetULong() )
 
