@@ -98,6 +98,14 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 					
 					WorldDBQuery("INSERT INTO arcmercs.mercenaries (ownerGuid, groupId, entry, display, angle, mercGuid, ownerName, type) VALUES ('"..tostring(data).."', "..intid..", "..e..", "..merc:GetDisplay()..", "..angle..", '"..tostring(merc:GetGUID()).."', '"..plr:GetName().."', 'Soldier' )")
 
+					local guid = tostring(merc)
+					
+					if not ARCMERCS[guid] then
+					
+						ARCMERCS[guid] = {}
+						
+					end
+
 					--unit:SendChatMessage( 12, 0, "Take your Soldier." )
 					
 					plr:SendBroadcastMessage( "You have hired a Mercenary." )
