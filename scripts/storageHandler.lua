@@ -40,8 +40,6 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 				
 				merc:SetModel( display )
 				
-				--merc:EquipWeapons( 1899, 143, 1 )
-				
 				if stance ~= 0 then
 				
 					local q = WorldDBQuery("SELECT slot1, slot2, slot3 FROM arcmercs.weapons WHERE entry = "..entry.." AND display = "..merc:GetDisplay().." AND stance = "..stance.."")
@@ -64,7 +62,15 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 				
 					WorldDBQuery("UPDATE arcmercs.mercenaries SET mercGuid = '"..m.."' WHERE ownerGuid = '"..p.."' AND groupId = 1 AND id = '"..id.."'")
 					
-					merc:SetByteValue( 0x0006 + 0x0011, 1, 1) -- set merc class: warrior
+					merc:SetByteValue( 0x0006 + 0x0011, 1, 1 ) -- set class: warrior
+					
+					local guid = tostring(merc)
+					
+					if not ARCMERCS[guid] then
+					
+						ARCMERCS[guid] = {}
+						
+					end
 					
 				end
 				
