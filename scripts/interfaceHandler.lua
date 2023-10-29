@@ -151,6 +151,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			
 			unit:CastSpell( 2457 ) -- battle stance
 			
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET stance = '1' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..tostring(unit:GetGUID()).."'")
+			
 			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 1
 			
 			--unit:EquipWeapons( 49778, 1, 1 )
@@ -167,6 +169,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			
 			unit:CastSpell( 71 ) -- defensive stance
 			
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET stance = '2' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..tostring(unit:GetGUID()).."'")
+			
 			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 2
 			
 			--unit:EquipWeapons( 1899, 143, 1 )
@@ -182,6 +186,8 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			unit:SendChatMessage( 12, 0, "Ok, I will be taking more damage, just so you know." )
 			
 			unit:CastSpell( 2458 ) -- berserker stance
+			
+			WorldDBQuery("UPDATE arcmercs.mercenaries SET stance = '3' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..tostring(unit:GetGUID()).."'")
 			
 			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 3
 			
@@ -240,6 +246,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		if intid == 8 then
 		
 			unit:SetUnitToFollow( plr, 2, 0 ) -- front (0)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '0' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
@@ -247,13 +254,15 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		if intid == 9 then
 		
 			unit:SetUnitToFollow( plr, 2, 1.04 ) -- left front (60)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '1.04' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 10 then
 		
-			unit:SetUnitToFollow( plr, 2, 1.57) -- Left (90)
+			unit:SetUnitToFollow( plr, 2, 1.57 ) -- Left (90)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '1.57' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
@@ -261,34 +270,39 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 		if intid == 11 then
 		
 			unit:SetUnitToFollow( plr, 2, 2.09 ) -- left back (120)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '2.09' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 12 then
 		
-			unit:SetUnitToFollow( plr, 2, 3.14) -- Back (180)
+			unit:SetUnitToFollow( plr, 2, 3.14 ) -- Back (180)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '3.14' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 13 then
 		
-			unit:SetUnitToFollow( plr, 2, 4.18) -- Right back (240)
+			unit:SetUnitToFollow( plr, 2, 4.18 ) -- Right back (240)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '4.18' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 14 then
 		
-			unit:SetUnitToFollow( plr, 2, 4.71) -- Right (270)
+			unit:SetUnitToFollow( plr, 2, 4.71 ) -- Right (270)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '4.71' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
 		
 		if intid == 15 then
 		
-			unit:SetUnitToFollow( plr, 2, 5.23) -- Right (300)
+			unit:SetUnitToFollow( plr, 2, 5.23 ) -- Right (300)
+			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET angle = '5.23' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..unit:GetGUID().."'")
 
 		end
