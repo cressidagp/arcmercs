@@ -5,6 +5,7 @@
 --local SPELL_CHARGE = 100
 --local SPELL_DRINK = 430
 --local SPELL_EAT = 433
+--local OBJECT_END = 0x0006
 --local UNIT_FIELD_SUMMONEDBY = 0x0006 + 0x0008
 --local UNIT_FIELD_TARGET = 0x0006 + 0x000C
 --local UNIT_FIELD_BYTES_0 = 0x0006 + 0x0011
@@ -56,6 +57,7 @@ function ARCMERCS.SOLDIER.OnAIUpdate( unit, event )
 		
 			-- sit on the ground
 			unit:SetByteValue( 0x0006 + 0x0044, 0, 1 )
+			
 		end
 		
 	end
