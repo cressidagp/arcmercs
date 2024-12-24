@@ -74,8 +74,6 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 		WorldDBQuery("DELETE FROM arcmercs.mercenaries WHERE ownerGuid = '"..tostring(data).."'")
 
-		--unit:SendChatMessage( 12, 0, "Your mercenary info has been reseted." )
-
 		plr:SendBroadcastMessage( "Your mercenary info has been reseted." )
 
 		plr:GossipComplete()
@@ -97,7 +95,7 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 					local merc = plr:CreateGuardian( e, 0, angle, level )
 					
 					WorldDBQuery("INSERT INTO arcmercs.mercenaries (ownerGuid, groupId, entry, display, angle, mercGuid, ownerName, type) VALUES ('"..tostring(data).."', "..intid..", "..e..", "..merc:GetDisplay()..", "..angle..", '"..tostring(merc:GetGUID()).."', '"..plr:GetName().."', 'Soldier' )")
-
+					
 					local guid = tostring(merc)
 					
 					if not ARCMERCS[guid] then
@@ -105,16 +103,14 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 						ARCMERCS[guid] = {}
 						
 					end
-
-					--unit:SendChatMessage( 12, 0, "Take your Soldier." )
 					
-					plr:SendBroadcastMessage( "You have hired a Mercenary." )
+					plr:SendBroadcastMessage( "You have hired an "..merc:GetName().."." )
 
 					plr:GossipComplete()
 
 				else
 
-					--unit:SendChatMessage( 12, 0, "I apologize, "..plr:GetName().." but you do not have the amount of money I require." )
+					-- player hasn money to hire
 
 					unit:GossipCreateMenu( 68001, plr, 0 )
 
@@ -124,7 +120,7 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 			else
 
-				--unit:SendChatMessage( 12, 0, "Im sorry, "..plr:GetName().." but i cant spare more than three Soldiers for each hero." )
+				-- player hasn room for more soldiers
 
 				unit:GossipCreateMenu( 68002, plr, 0 )
 
@@ -134,7 +130,7 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 		else
 
-			-- unit:SendChatMessage( 12, 0, "Hi there, "..plr:GetName().." im afraid than your level is not enough." )
+			-- player level is not enough
 
 			unit:GossipCreateMenu( 68003, plr, 0 )
 
@@ -146,13 +142,13 @@ function ARCMERCS.MasterOnSelection( unit, event, plr, id, intid, code )
 
 	if( intid == 2 ) then
 
-		unit:SendChatMessage( 12, 0, "Take your Healer." )
+		plr:SendBroadcastMessage( "You have hired an healer" )
 
 	end
 
 	if( intid == 3 ) then
 
-		unit:SendChatMessage( 12, 0, "Take your Officer." )
+		plr:SendBroadcastMessage( "You have hired an officer" )
 
 	end
 
