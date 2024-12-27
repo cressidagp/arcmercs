@@ -152,6 +152,18 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 				unit:SendChatMessage( 12, 0, "Very well I shall fight in a mixed style." )
 				
 				unit:CastSpell( 2457 ) -- battle stance
+
+				if unit:HasAura( 71 ) then
+				
+					unit:RemoveAura( 71 )
+				
+				end
+				
+				if unit:HasAura( 2458 ) then
+				
+					unit:RemoveAura( 2458 )
+				
+				end
 				
 			end 
 				
@@ -172,6 +184,18 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 				unit:SendChatMessage( 12, 0, "Well, Tank mode it is then." )
 			
 				unit:CastSpell( 71 ) -- defensive stance
+
+				if unit:HasAura( 2457 ) then
+				
+					unit:RemoveAura( 2457 )
+				
+				end
+				
+				if unit:HasAura( 2458 ) then
+				
+					unit:RemoveAura( 2458 )
+					
+				end	
 			
 			end
 			
@@ -192,6 +216,18 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 				unit:SendChatMessage( 12, 0, "Ok, I will be taking more damage, just so you know." )
 			
 				unit:CastSpell( 2458 ) -- berserker stance
+
+				if unit:HasAura( 2457 ) then
+				
+					unit:RemoveAura( 2457 )
+					
+				end
+				
+				if unit:HasAura( 71 ) then
+				
+					unit:RemoveAura( 71 )
+					
+				end
 			
 			end
 			
