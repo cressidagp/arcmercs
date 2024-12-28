@@ -20,11 +20,21 @@ math.randomseed(os.time()); math.random(); math.random(); math.random();
 function ARCMERCS.SOLDIER.OnSpawn( unit, event )
 
 	-- not start aiupdate if merc dont have owner
+	
 	if unit:GetUInt64Value( 0x0006 + 0x0008 ) ~= nil then
 
 		unit:RegisterAIUpdateEvent( 2000 )
 		
 	end
+	
+	local sUnit = tostring(unit)
+	
+	ARCMERCS[tostring(sUnit)] = {
+		
+		spellTimer = math.random( 6, 10 ),
+		spellNumber = 1
+		
+	};
 
 end
 
@@ -68,23 +78,51 @@ function ARCMERCS.SOLDIER.OnAIUpdate( unit, event )
 	
 	if unit:GetAIState() == 1 then
 	
+		unit:SendChatMessage( 12, 0, "state: attacking" ) -- for debug
+	
 		local target = unit:GetUInt64Value( 0x0006 + 0x000C )
 		
 		-- dont bother with this if no target
 		if target == nil then return; end
-	
-		if ARCMERCS[tostring(unit)].soldierStance == 1 then
 		
-			print("stance1")
-	
-		elseif ARCMERCS[tostring(unit)].soldierStance == 2 then
+		local sUnit = tostring(unit)
 		
-			print("stance2")
-	
-		else
+		ARCMERCS[sUnit].spellTimer = ARCMERCS[sUnit].spellTimer - 1
 		
-			print("stance3")
-		
+		if ARCMERCS[sUnit].spellTimer <= 0 then
+			
+			local s = ARCMERCS[sUnit].soldierStance
+			local n = ARCMERCS[sUnit].spellNumber
+			local lv = unit:GetLevel()
+			
+			local q = WorldDBQuery("SELECT spellId, target FROM arcmercs.spells WHERE entry = "..unit:GetEntry().." AND stance = "..s.." AND o = "..n.." AND minlv < "..lv.." AND maxlv > "..lv.." ")
+			
+			if q then
+			
+				local value = q:GetColumn( 1 ):GetShort()
+			
+				if value == 0 then
+				
+					unit:CastSpell( q:GetColumn( 0 ):GetULong() )
+				
+				elseif value == 1 then
+				
+					unit:CastSpellOnTarget( q:GetColumn( 0 ):GetULong(), target )
+				
+				end
+			
+				ARCMERCS[sUnit].spellTimer = math.random( 6, 10 )
+				
+				ARCMERCS[sUnit].spellNumber = ARCMERCS[sUnit].spellNumber + 1
+				
+				if ARCMERCS[sUnit].spellNumber == 5 then
+				
+					ARCMERCS[sUnit].spellNumber = 0
+					
+				end
+				
+			end
+
 		end
 	
 	end
