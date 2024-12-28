@@ -22,7 +22,7 @@ function ARCMERCS.SOLDIER.OnSpawn( unit, event )
 	-- not start aiupdate if merc dont have owner
 	if unit:GetUInt64Value( 0x0006 + 0x0008 ) ~= nil then
 
-		unit:RegisterAIUpdateEvent( 1000 )
+		unit:RegisterAIUpdateEvent( 2000 )
 		
 	end
 
