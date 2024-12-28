@@ -169,7 +169,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 				
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET stance = '1' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..tostring(unit:GetGUID()).."'")
 			
-			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 1
+			ARCMERCS[tostring(unit)].soldierStance = 1
 			
 			getWeaponsFromDB( unit:GetDisplay(), intid - 1, unit )
 			
@@ -201,7 +201,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET stance = '2' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..tostring(unit:GetGUID()).."'")
 			
-			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 2
+			ARCMERCS[tostring(unit)].soldierStance = 2
 			
 			getWeaponsFromDB( unit:GetDisplay(), intid - 1, unit )
 			
@@ -233,7 +233,7 @@ function ARCMERCS.MercsOnSelection( unit, event, plr, id, intid, code )
 			
 			WorldDBQuery("UPDATE arcmercs.mercenaries SET stance = '3' WHERE ownerGuid = '"..tostring(plr:GetGUID()).."' AND mercGuid = '"..tostring(unit:GetGUID()).."'")
 			
-			ARCMERCS[tostring(unit)].SOLDIER_STANCE = 3
+			ARCMERCS[tostring(unit)].soldierStance = 3
 			
 			getWeaponsFromDB( unit:GetDisplay(), intid - 1, unit )
 			

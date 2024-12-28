@@ -31,7 +31,7 @@ end
 function ARCMERCS.SOLDIER.OnAggro( unit, event, attacker )
 	
 	-- soldier has 'battle stance'
-	if ARCMERCS[tostring(unit)].SOLDIER_STANCE == 1 then
+	if ARCMERCS[tostring(unit)].soldierStance == 1 then
 		
 		-- check if enemy is in range
 		if unit:GetDistanceYards( attacker ) < 27 then
@@ -73,11 +73,11 @@ function ARCMERCS.SOLDIER.OnAIUpdate( unit, event )
 		-- dont bother with this if no target
 		if target == nil then return; end
 	
-		if ARCMERCS[tostring(unit)].SOLDIER_STANCE == 1 then
+		if ARCMERCS[tostring(unit)].soldierStance == 1 then
 		
 			print("stance1")
 	
-		elseif ARCMERCS[tostring(unit)].SOLDIER_STANCE == 2 then
+		elseif ARCMERCS[tostring(unit)].soldierStance == 2 then
 		
 			print("stance2")
 	

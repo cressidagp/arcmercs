@@ -66,9 +66,9 @@ function ARCMERCS.LoadMercsOnMapChange( event, plr )
 					
 					local guid = tostring(merc)
 					
-					if not ARCMERCS[guid].SOLDIER_STANCE then
+					if not ARCMERCS[guid].soldierStance then
 					
-						ARCMERCS[guid].SOLDIER_STANCE = 1
+						ARCMERCS[guid].soldierStance = 1
 						
 					end
 					
