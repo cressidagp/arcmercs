@@ -95,7 +95,7 @@ function ARCMERCS.SOLDIER.OnAIUpdate( unit, event )
 			local n = ARCMERCS[sUnit].spellNumber
 			local lv = unit:GetLevel()
 			
-			local q = WorldDBQuery("SELECT spellId, target FROM arcmercs.spells WHERE entry = "..unit:GetEntry().." AND stance = "..s.." AND o = "..n.." AND minlv < "..lv.." AND maxlv > "..lv.." ")
+			local q = WorldDBQuery("SELECT spellId, target FROM arcmercs.spells WHERE entry = "..unit:GetEntry().." AND stance = "..s.." AND slot = "..n.." AND minlv < "..lv.." AND maxlv > "..lv.." ")
 			
 			if q then
 			
