@@ -107,7 +107,13 @@ function ARCMERCS.SOLDIER.OnAIUpdate( unit, event )
 				
 				elseif value == 1 then
 				
-					unit:CastSpellOnTarget( q:GetColumn( 0 ):GetULong(), target )
+					local target = unit:GetMainTank()
+					
+					if target then
+				
+						unit:CastSpellOnTarget( q:GetColumn( 0 ):GetULong(), target )
+						
+					end
 				
 				end
 			
