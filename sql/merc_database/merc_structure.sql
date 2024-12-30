@@ -38,7 +38,7 @@ CREATE TABLE `spells` (
   `maxlv` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `target` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `spName` varchar(21) NOT NULL DEFAULT '',
-  PRIMARY KEY (`entry`, `stance`, `order`, `spellId`)
+  PRIMARY KEY (`entry`, `stance`, `slot`, `spellId`, `rank`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='MercSystem';
 
 CREATE TABLE `weapons` (
