@@ -119,14 +119,14 @@ function ARCMERCS.SOLDIER.OnAIUpdate( unit, event )
 			
 				ARCMERCS[sUnit].spellTimer = math.random( 6, 10 )
 				
-				ARCMERCS[sUnit].spellNumber = ARCMERCS[sUnit].spellNumber + 1
-				
-				if ARCMERCS[sUnit].spellNumber == 5 then
-				
-					ARCMERCS[sUnit].spellNumber = 0
-					
-				end
-				
+			end
+			
+			ARCMERCS[sUnit].spellSlot = ARCMERCS[sUnit].spellSlot + 1
+			
+			if ARCMERCS[sUnit].spellSlot == 5 then
+			
+				ARCMERCS[sUnit].spellSlot = 1
+			
 			end
 
 		end
